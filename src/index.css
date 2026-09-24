@@ -1,0 +1,36 @@
+@import '@designcodeio/threeui/style.css';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #080808;
+  color: #f1f5f9;
+  font-family: 'Onest', system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.shader-frame {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background: #080808;
+}
+
+.shader-frame .landing-page-frame {
+  width: 100%;
+  height: 100%;
+}
