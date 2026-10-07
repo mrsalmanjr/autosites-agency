@@ -9,7 +9,7 @@
  * WHATSAPP_TOKEN=your_meta_system_user_token
  * WHATSAPP_PHONE_ID=your_meta_phone_number_id
  * WHATSAPP_VERIFY_TOKEN=your_custom_webhook_verify_token
- * FOUNDER_PHONE=917022349473
+ * CONTACT_PHONE=918277788178
  */
 
 const express = require('express');
@@ -23,7 +23,7 @@ const PORT = process.env.PORT || 3000;
 const WHATSAPP_TOKEN = process.env.WHATSAPP_TOKEN;
 const PHONE_ID = process.env.WHATSAPP_PHONE_ID;
 const VERIFY_TOKEN = process.env.WHATSAPP_VERIFY_TOKEN || 'autosites_verify_secret';
-const FOUNDER_PHONE = process.env.FOUNDER_PHONE || '917022349473';
+const CONTACT_PHONE = process.env.CONTACT_PHONE || '918277788178';
 
 /**
  * 1. Webhook Verification Endpoint (Required by Meta)
@@ -88,10 +88,10 @@ app.post('/webhook', async (req, res) => {
       console.log(`[Incoming WhatsApp] from ${from} (${customerName}): ${text}`);
 
       // Basic Intent Router for AUTOSITES Services
-      let reply = `Hello ${customerName}! 👋 Welcome to AUTOSITES.\n\nWe provide 3 core digital capabilities directed directly by founder Salman Nadaf:\n1️⃣ Websites (Design & Three.js 3D)\n2️⃣ Business Automation & AI\n3️⃣ SEO & Smart NFC Review Stands\n\nHow can we help your business today?`;
+      let reply = `Hello ${customerName}! 👋 Welcome to AUTOSITES.\n\nWe provide 3 core digital capabilities directed directly by our core engineering team:\n1️⃣ Websites (Design & Three.js 3D)\n2️⃣ Business Automation & AI\n3️⃣ SEO & Smart NFC Review Stands\n\nHow can we help your business today?`;
 
       if (text.includes('website') || text.includes('web')) {
-        reply = `🌐 *AUTOSITES Websites*\nWe engineer custom, sub-second web platforms using Next.js & Three.js WebGL.\nWould you like to see our portfolio or schedule a consultation with Salman?`;
+        reply = `🌐 *AUTOSITES Websites*\nWe engineer custom, sub-second web platforms using Next.js & Three.js WebGL.\nWould you like to see our portfolio or schedule a consultation with our team?`;
       } else if (text.includes('automation') || text.includes('ai')) {
         reply = `⚡ *AUTOSITES AI & Automation*\nWe deploy custom CRM workflows, autonomous lead routers, and intelligent AI agents that work 24/7.\nWhat business process would you like to automate?`;
       } else if (text.includes('nfc') || text.includes('seo') || text.includes('review')) {
@@ -129,9 +129,9 @@ app.post('/api/notify-lead', async (req, res) => {
                     `Timestamp: ${new Date().toLocaleString()}`;
 
   try {
-    // Send immediate WhatsApp notification directly to Salman
-    await sendWhatsAppMessage(FOUNDER_PHONE, alertText);
-    return res.status(200).json({ success: true, message: 'Founder notified via WhatsApp' });
+    // Send immediate WhatsApp notification directly to Contact Team
+    await sendWhatsAppMessage(CONTACT_PHONE, alertText);
+    return res.status(200).json({ success: true, message: 'Team notified via WhatsApp' });
   } catch (err) {
     return res.status(500).json({ error: 'Failed to send WhatsApp alert' });
   }
